@@ -21,7 +21,7 @@ def recv(conn):
 connected = True
 while connected:
     msg = recv(client)
-    
+
     proc = subprocess.Popen(msg.split(" "), stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
     print("Program Output: ", out)
