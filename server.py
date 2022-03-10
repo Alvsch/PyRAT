@@ -34,7 +34,7 @@ def start():
         conn, addr = server.accept()
         print(f"[CONNECTED] Conencted to {addr}")
         command = input("Enter a command: ")
-        send(command)
+        send(command, conn)
 
 
 print("[STARTING] server is starting...")
