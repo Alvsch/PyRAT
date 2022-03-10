@@ -24,7 +24,7 @@ def send(msg, conn):
     send_length += b' ' * (HEADER - len(send_length))
     conn.send(send_length)
     conn.send(message)
-    print(str(recv(conn)).replace("\\n", "\n"))
+    print(str(recv(conn)).replace("\\n", "\n").replace("\\r", ""))
 
 def start():
     server.listen(1)
