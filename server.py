@@ -33,8 +33,9 @@ def start():
     while True:
         conn, addr = server.accept()
         print(f"[CONNECTED] Conencted to {addr}")
-        command = input("Enter a command: ")
-        send(command, conn)
+        while True:
+            command = input("Enter a command: ")
+            send(command, conn)
 
 
 print("[STARTING] server is starting...")
