@@ -1,5 +1,4 @@
 import socket
-import threading
 
 HEADER = 64
 PORT = 5555

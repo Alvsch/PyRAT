@@ -32,4 +32,4 @@ while connected:
 
     proc = subprocess.Popen(msg.split(" "), stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
-    send(out.decode(FORMAT), client)
+    send(str(out), client)
